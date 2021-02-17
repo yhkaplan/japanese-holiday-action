@@ -23,7 +23,7 @@ jobs:
     name: Test
     steps:
       - name: Get holiday
-        uses: actions/hello-world-javascript-action@v0.1
+        uses: actions/japanese-holiday-action@v0.1
         id: holiday # ID to refer to in other steps
 
       - name: Says if holiday
