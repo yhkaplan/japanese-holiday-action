@@ -1,0 +1,21 @@
+on: [push]
+
+jobs:
+  hello_world_job:
+    runs-on: ubuntu-latest
+    name: Test
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+
+      - name: Get holiday
+        uses: ./ # Uses an action in the root directory
+        id: holiday # ID to refer to in other steps
+
+      - name: Says if holiday 1
+        if: ${{ steps.holiday.outputs.isHoliday == 'true' }}
+        run: echo "Today is ${{ steps.holiday.outputs.holiday }}. isHoliday ${{ steps.holiday.outputs.isHoliday }}"
+
+      - name: Says if holiday 2
+        if: ${{ steps.holiday.outputs.isHoliday != 'true' }}
+        run: echo "Today is not a holiday. isHoliday ${{ steps.holiday.outputs.isHoliday }}"

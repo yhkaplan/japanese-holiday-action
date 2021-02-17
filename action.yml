@@ -1,0 +1,10 @@
+name: 'Japanese Public Holiday Action'
+description: 'Check if and what Japanese public holiday it is'
+outputs:
+  holiday:
+    description: 'Public holiday'
+  isHoliday:
+    description: 'Name of public holiday'
+runs:
+  using: 'node12'
+  main: 'dist/index.js'
